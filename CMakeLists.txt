@@ -33,14 +33,6 @@ AddFileToOverlayDir(
     overlay
 )
 
-
-AddFileToOverlayDir(
-    "S90arping_test"
-    ${CMAKE_CURRENT_SOURCE_DIR}/overlay_files/init_scripts/arping_test
-    "etc/init.d"
-    overlay
-)
-
 AddOverlayDirToRootfs(
     overlay
     ${rootfs_file}
