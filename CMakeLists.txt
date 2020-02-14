@@ -72,6 +72,8 @@ DefineCAmkESVMFileServer()
 
 CAmkESAddImportPath(${KernelARMPlatform})
 
+# CAmkES flag tells AM project to build a CAmkES component
+set(CAmkES TRUE)
 add_subdirectory(AM)
 
 DeclareCAmkESRootserver(
