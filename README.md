@@ -2,7 +2,7 @@ The start of the attestation architecture. Builds a slimmed down version of the 
 
 This version of the AM does not have sockets, nor a proper RNG seed source. It also seems to struggle with cryptographic signatures. It's possible the library is trying to perform file IO, which CAmkES will respond to with a runtime error. 
 
-Next on the agenda: re-implement the above functionality, and look at 'CakeML component <-> VM' communication.
+Next on the agenda: reimplement the above functionality, and look at 'CakeML component <-> VM' communication.
 
 ## How to build
 
