@@ -38,6 +38,8 @@ assembly {
             "linux_stdout" : "serial2:115200n8",
         };
 
+        // vm.dtb = dtb([{"path": "/soc/pwm@12dd0000"}]);
+
         vm.dtb = dtb([{"path": "/firmware@02073000"},
                       {"path": "/soc/audss-clock-controller@3810000"},
                       {"path": "/soc/i2s@3830000"},
@@ -96,7 +98,6 @@ assembly {
                       {"path": "/soc/i2c@12cb0000"},
                       {"path": "/soc/i2c@12cc0000"},
                       {"path": "/soc/adc@12d10000"},
-                      {"path": "/soc/pwm@12dd0000"},
                       {"path": "/soc/pinctrl@13400000"},
                       {"path": "/soc/pinctrl@13410000"},
                       {"path": "/soc/video-scaler@13e00000"},

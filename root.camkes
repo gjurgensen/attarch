@@ -11,20 +11,29 @@
  */
 
 import <std_connector.camkes>;
+//import <global-connectors.camkes>;
 import <vm-connectors.camkes>;
 import <VM/vm_common.camkes>;
 import <devices.camkes>;
 
+//import <TimeServer/TimeServer.camkes>;
+
 component AM {
     control;
+    uses Timer timer;
 }
 
 assembly {
     composition {
+        component TimeServer time_server;
         component AM am;
+        connection seL4TimeServer client_timer(from am.timer, to time_server.the_timer);
+
         connection seL4VMDTBPassthrough vm_dtb(from vm.dtb_self, to vm.dtb);
     }
     configuration {
+        time_server.timers_per_client = 1;
+
         vm.num_extra_frame_caps = 0;
         vm.extra_frame_map_address = 0;
     }
