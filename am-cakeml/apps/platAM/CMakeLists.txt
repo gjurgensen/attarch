@@ -20,12 +20,6 @@ DeclareCAmkESComponent(
 
 # Add hacl
 
-# set(hacl_c_flags -DIS_ARM_7 -DBROKEN_INTRINSICS -DIS_NOT_X64 -DKRML_VERIFIED_UINT128 -DLib_IntVector_Intrinsics_vec256=\"void *\")
-# set(hacl_c_flags -DIS_ARM_8 -DBROKEN_INTRINSICS -DKRML_VERIFIED_UINT128 -DLib_IntVector_Intrinsics_vec256="void *")
-# set(hacl_c_flags -DIS_ARM_8 -DBROKEN_INTRINSICS -DKRML_VERIFIED_UINT128)
-
-# set(hacl_c_flags -DIS_ARM_7 -DBROKEN_INTRINSICS -DIS_NOT_X64 -DKRML_VERIFIED_UINT128 -DLib_IntVector_Intrinsics_vec256="void *")
-
 set(hacl_release_dir "${CMAKE_CURRENT_SOURCE_DIR}/../../../hacl-star/dist")
 set(hacl_path    "${hacl_release_dir}/gcc-compatible")
 set(kremlin_path "${hacl_release_dir}/kremlin/include")
@@ -34,8 +28,10 @@ set(hacl_sources ${hacl_path}/Hacl_Hash.c ${hacl_path}/Hacl_Ed25519.c ${hacl_pat
 DeclareCAmkESComponent(
     Platam
     SOURCES ${hacl_sources}
-    INCLUDES ${CMAKE_CURRENT_SOURCE_DIR}/include ${hacl_path} ${kremlin_path} ${kremlib_path}
-    # C_FLAGS "${hacl_c_flags}"
+    # INCLUDES ${CMAKE_CURRENT_SOURCE_DIR}/include ${hacl_path} ${kremlin_path} ${kremlib_path}
+    INCLUDES /usr/lib/gcc-cross/aarch64-linux-gnu/8/include ${hacl_path} ${kremlin_path} ${kremlib_path}
     C_FLAGS -include ${CMAKE_CURRENT_SOURCE_DIR}/hacl_config.h
 )
  
+get_absolute_source_or_binary(out /usr/lib/gcc-cross/aarch64-linux-gnu/8/include)
+message(WARNING "absolute: ${out}")
