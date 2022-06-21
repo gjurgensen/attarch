@@ -1,3 +1,5 @@
+This is an old version of the project. It is now maintained at https://github.com/ku-sldg/attarch.
+
 ## About
 An architecture for attestation. Features two Copland Attestation Managers (AMs): one in the VM, and one at the CAmkES level.
 
